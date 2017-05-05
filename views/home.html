@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text-center">
+                <h1>Currency ticker (USD, EUR, GBP, JPY, BNG)</h1>
+            </div>
+            <hr>
+            <p id="tday"></p>
+            <div class="well well-large text-center" id="show">
+                <p><strong>Exchange rate:</strong></p>
+                <p><a href="/USD" class="btn btn-default btn-lg">Convert to USD</a></p>
+                <p><a href="/EUR" class="btn btn-primary btn-lg">Convert to EUR</a></p>
+                <p><a href="/JPY" class="btn btn-success btn-lg">Convert to JPY</a></p>
+                <p><a href="/BGN" class="btn btn-info btn-lg">Convert to BGN</a></p>
+                <p><a href="/GBP" class="btn btn-warning btn-lg">Convert to GBP</a></p>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <p> demo by <a href="https://www.linkedin.com/in/deyan-delev-79584b119/">Deyan Delev</a></p>
+    </div>
+</div>
+
+<script>
+    document.getElementById("tday").innerHTML = Date();
+</script>
+
+{% endblock %}

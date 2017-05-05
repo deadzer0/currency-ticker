@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block header %}
+{{ super() }}
+{% endblock %}
+
+{% block content %}
+{{ super() }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="well well-large text-center">
+                <img src="/images/error.png" class="img-responsive centered" alt="broken">
+                <div id="errmsg">
+                    <h2>Error!</h2>
+                    <p>Please provide valid 3-digit currency code</p>
+                    <p>format: USD, EUR, BGN, JPY</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="/" class="btn btn-default btn-lg">BACK</a>
+    <div id="footer">
+        <p> demo by <a href="https://www.linkedin.com/in/deyan-delev-79584b119/">Deyan Delev</a></p>
+    </div>
+</div>
+
+<script>
+    document.getElementById("tday").innerHTML = Date();
+</script>
+
+{% endblock %}

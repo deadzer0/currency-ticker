@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block header %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    {{ super() }}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="text-center">
+                <h1>Currency ticker (USD, EUR, GBP, JPY, BNG)</h1>
+
+            </div>
+            <hr>
+            <p id="tday"></p>
+            <div class="well well-large text-center" id="show">
+                {% if data.result === "success" %}
+                        <h4>
+                            {{ data.from }}/USD <span> {{ data.rates.USD }}</span>
+                            | {{ data.from }}/EUR <span> {{ data.rates.EUR }}</span>
+                            | {{ data.from }}/GBP <span> {{ data.rates.GBP }}</span>
+                            | {{ data.from }}/JPY <span> {{ data.rates.JPY }}</span>
+                            | {{ data.from }}/BGN <span> {{ data.rates.BGN }}</span>
+                        </h4>
+                {% else %}
+                    <img src="/images/broken.jpg" class="img-responsive centered" alt="broken">
+                    <div id="errmsg">
+                        <h2>Nothing found!</h2>
+                        <p>Please provide valid 3-digit currency code</p>
+                        <p>format: USD, EUR, BGN, JPY</p>
+                    </div>
+                {% endif %}
+            </div>
+            <a href="/" class="btn btn-default btn-lg">BACK</a>
+
+            <div id="footer">
+                <p> demo by <a href="https://www.linkedin.com/in/deyan-delev-79584b119/">Deyan Delev</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.getElementById("tday").innerHTML = Date();
+</script>
+
+{% endblock %}
